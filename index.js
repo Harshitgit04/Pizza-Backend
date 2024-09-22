@@ -7,7 +7,7 @@ const connectDB = require("./Config/dbConfig")
 //these are desrialisers or decoders for the request 
 app.use(express.json())
 app.use(express.text())
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:true}))
 
 app.post('/ping',(req,res)=>{ //this code is generally present in controllers
     console.log(req.body)
