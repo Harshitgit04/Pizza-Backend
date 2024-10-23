@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-const ServerConfig = require("../Express App/Config/serverConfig")
+const ServerConfig = require("./Config/serverConfig")
 const connectDB = require("./Config/dbConfig")
 const userRoutes = require("./Routers/userRouters")
 const { authRouter } = require("./Routers/authRouter")
@@ -22,7 +22,7 @@ app.use("/cart",cartRouter)
 app.use("/orders",orderRoutes)
 
 app.post("/ping",function post(req,res){
-    return res.status(201).json({success:true,message:"Pong"})
+    return res.status(201).json({success:true,message:"Pong"}) 
 })
 
 app.listen(ServerConfig.PORTNO,async ()=>{
