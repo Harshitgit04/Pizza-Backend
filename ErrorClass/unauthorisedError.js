@@ -8,4 +8,4 @@ class unauthorisedError extends AppError{
 
 module.exports = {
    unauthorisedError
-}
+} 

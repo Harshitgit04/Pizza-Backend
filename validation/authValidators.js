@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken")
-const { unauthorisedError } = require("../ErrorClass/unAuthorisedError")
-
+const unauthorisedError = require("../ErrorClass/unauthorisedError")
 /* Validators are the middlewares that are used before accessing the controllers and here the token or the
     cookie is verified and if it is verified then the user will be allowed to access the api which will be 
     done by sending the control to controller further ...
@@ -11,7 +10,7 @@ const { unauthorisedError } = require("../ErrorClass/unAuthorisedError")
 */
 
 async function isLoggedIn(req,res,next){
-    const token = req.cookies["authToken"]
+    const token = req.cookies["authToken"] 
     if(!token){
         return res.status(401).json({
             success:false,
@@ -23,7 +22,7 @@ async function isLoggedIn(req,res,next){
     try{
         const decoded = jwt.verify(token,"harshit")
         if(!decoded){
-            throw new unauthorisedError()
+            throw new unauthorisedError
         }
         req.user={
             email:decoded.email,
