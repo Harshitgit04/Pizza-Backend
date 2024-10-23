@@ -21,7 +21,7 @@ app.use("/product",productRoutes)
 app.use("/cart",cartRouter)
 app.use("/orders",orderRoutes)
 
-app.post("/ping",function post(req,res){
+app.get("/ping",function post(req,res){
     console.log(req.body)
     return res.status(201).json({success:true,message:"Pong"}) 
 })
