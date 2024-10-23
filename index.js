@@ -22,10 +22,11 @@ app.use("/cart",cartRouter)
 app.use("/orders",orderRoutes)
 
 app.post("/ping",function post(req,res){
+    console.log(req.body)
     return res.status(201).json({success:true,message:"Pong"}) 
 })
 
 app.listen(ServerConfig.PORTNO,async ()=>{
     await connectDB()
     console.log(`Server has been started at port no ${ServerConfig.PORTNO}...`)
-})   
+})    
